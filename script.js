@@ -9,7 +9,7 @@
 // start with easy i guess
 
 //array of hex codes
-var rgb = ['rgb(255,0,0)','rgb(0,255,0)','rgb(0,0,255)','rgb(255,69,0)','rgb(189,183,107)','rgb(32,178,170)','rgb(30,144,255)','rgb(186,85,211)','rgb(255,105,180)','rgb(222,184,135)'];
+var rgb = ['rgb(255, 0, 0)','rgb(0, 255 ,0)','rgb(0, 0, 255)','rgb(255,69,0)','rgb(189,183,107)','rgb(32,178,170)','rgb(30,144,255)','rgb(186,85,211)','rgb(255,105,180)','rgb(222,184,135)'];
 
 //shuffle function to shuffle the array
 function shuffle(array) {
@@ -39,22 +39,36 @@ shuffle(rgb);
 var divs = document.querySelectorAll('.colourBlock');
 var h1 = document.querySelector('.rgb');
 
-//assigns an element from the array to the title div
- 
+
+//chooses a random bumber between 0 & 2 
+//means that the correct rgb code wont always be the first one
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+//stores the random number generated in a variable
 var rand = getRandomInt(0,2);
 
 console.log(rand);
 
+//assigns an element from the array to the title div
 h1.innerHTML = rgb[rand];
 
 //gives background colours to each of the divs
 for(var i = 0; i < divs.length; i++){
     divs[i].style.backgroundColor = rgb[i];
+    divs[i].addEventListener("click", guess);
 }
 
+function guess(){
+    console.log("clicked");
+    console.log(this.style.backgroundColor + rgb[rand]);
+    console.log(this.style.backgroundColor);
+    if(this.style.backgroundColor != rgb[rand]) {
+        this.classList.add("hide");
+    }
+    else if(this.style.backgroundColor == rgb[rand]){
+        console.log("samesies");
+    }
+}
 console.log(rgb);
 
