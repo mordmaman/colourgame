@@ -38,6 +38,7 @@ shuffle(rgb);
 //assigns elements on page to variables
 var divs = document.querySelectorAll('.colourBlock');
 var h1 = document.querySelector('.rgb');
+var verdict = document.querySelector('.verdict');
 
 
 //chooses a random bumber between 0 & 2 
@@ -65,9 +66,11 @@ function guess(){
     console.log(this.style.backgroundColor);
     if(this.style.backgroundColor != rgb[rand]) {
         this.classList.add("hide");
+        verdict.innerHTML = "Try again";
     }
     else if(this.style.backgroundColor == rgb[rand]){
         console.log("samesies");
+        verdict.innerHTML = "Correct";
         for(var i = 0; i < divs.length; i++){
             divs[i].classList.remove("hide");
             divs[i].style.backgroundColor = rgb[rand];
