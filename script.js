@@ -9,13 +9,39 @@
 // start with easy i guess
 
 //array of hex codes
-var rgb = ['rgb(255,0,0)','rgb(0,255,0)','rgb(0,0,255)'];
+var rgb = ['rgb(255,0,0)','rgb(0,255,0)','rgb(0,0,255)','rgb(255,69,0)','rgb(189,183,107)','rgb(32,178,170)','rgb(30,144,255)','rgb(186,85,211)','rgb(255,105,180)','rgb(222,184,135)'];
 
+//shuffle the array
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+arr = shuffle(rgb);
+
+
+//assigns elements on page to variables
 var divs = document.querySelectorAll('.colourBlock');
 var h1 = document.querySelector('.rgb');
 
+//assings an element from the array to the title div
 h1.innerHTML = rgb[0];
 
+//
 for(var i = 0; i < divs.length; i++){
     divs[i].style.backgroundColor = rgb[i];
 }
