@@ -50,9 +50,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
-
 //stores the random number generated in a variable
+//adds the if else to determine if the number should be limited to 3 or 6
 function difficultyLevel(){
     if (hard!=false){
     var rand = getRandomInt(0,5);}
