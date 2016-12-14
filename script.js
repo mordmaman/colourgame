@@ -39,11 +39,22 @@ shuffle(rgb);
 var divs = document.querySelectorAll('.colourBlock');
 var h1 = document.querySelector('.rgb');
 
-//assings an element from the array to the title div
+//assigns an element from the array to the title div
+ 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-h1.innerHTML = rgb[0];
+var rand = getRandomInt(0,2);
 
-//
+console.log(rand);
+
+h1.innerHTML = rgb[rand];
+
+//gives background colours to each of the divs
 for(var i = 0; i < divs.length; i++){
     divs[i].style.backgroundColor = rgb[i];
 }
+
+console.log(rgb);
+
