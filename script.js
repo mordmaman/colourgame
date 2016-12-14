@@ -9,7 +9,7 @@
 // start with easy i guess
 
 //array of hex codes
-var rgb = ['rgb(255, 0, 0)','rgb(0, 255 ,0)','rgb(0, 0, 255)','rgb(255,69,0)','rgb(189,183,107)','rgb(32,178,170)','rgb(30,144,255)','rgb(186,85,211)','rgb(255,105,180)','rgb(222,184,135)'];
+var rgb = ['rgb(255, 0, 0)','rgb(0, 255 ,0)','rgb(0, 0, 255)','rgb(255, 69, 0)','rgb(189, 183, 107)','rgb(32, 178, 170)','rgb(30, 144, 255)','rgb(186, 85, 211)','rgb(255, 105, 180)','rgb(222, 184, 135)'];
 
 //shuffle function to shuffle the array
 function shuffle(array) {
@@ -68,6 +68,10 @@ function guess(){
     }
     else if(this.style.backgroundColor == rgb[rand]){
         console.log("samesies");
+        for(var i = 0; i < divs.length; i++){
+            divs[i].classList.remove("hide");
+            divs[i].style.backgroundColor = rgb[rand];
+        }
     }
 }
 console.log(rgb);
