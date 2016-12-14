@@ -41,18 +41,33 @@ var h1 = document.querySelector('.rgb');
 var verdict = document.querySelector('.verdict');
 var difficulty = document.querySelectorAll('.difficulty');
 
+//initialises the hard variable as false, to be changed if user clicks on hard
+var hard = false;
+
 //chooses a random bumber between 0 & 2 
 //means that the correct rgb code wont always be the first one
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-//stores the random number generated in a variable
-var rand = getRandomInt(0,2);
 
-console.log(rand);
+
+
+//stores the random number generated in a variable
+function difficultyLevel(){
+    if (hard!=false){
+    var rand = getRandomInt(0,5);}
+    else{
+    var rand = getRandomInt(0,2)
+    }
+    return rand;
+}
+
+//difficultyLevel();
+console.log(hard);
+console.log(difficultyLevel());
 
 //assigns an element from the array to the title div
-h1.innerHTML = rgb[rand];
+h1.innerHTML = rgb[difficultyLevel()];
 
 //gives background colours to each of the divs
 for(var i = 0; i < divs.length; i++){
