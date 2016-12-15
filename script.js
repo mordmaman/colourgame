@@ -37,7 +37,8 @@ shuffle(rgb);
 //chooses a random number between 0 & 2 
 //means that the correct rgb code wont always be the first one
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    return rand;
 }
 
 //assigns elements on page to variables
@@ -47,33 +48,74 @@ var h1 = document.querySelector('.rgb');
 var verdict = document.querySelector('.verdict');
 var difficulty = document.querySelectorAll('.difficulty');
 var colourBlocks = document.querySelectorAll('.c');
-
+var refresh = document.getElementsByClassName(".refresh");
 //initialises the hard variable as false, to be changed if user clicks on hard
 //var hard = false;
 var hard;
 var divNum;
-
+var rand;
 
 //stores the random number generated in a variable
 //adds the if else to determine if the number should be limited to 3 or 6
-function difficultyLevel(){
-    //difficultyChange();
-    console.log(hard);
-    if (hard!=false){
+// function difficultyLevel(){
+//     //difficultyChange();
+//     if (hard!=false){
+//     var rand = getRandomInt(0,5);
+//     divNum = 5;
+//     }
+//     else{
+//     var rand = getRandomInt(0,2)
+//     divNum = 2
+//     for(var i = 0; i < divs.length; i++){
+//         divs[i].classList.add("hide");
+//     }
+//     }
+//     return rand;
+// }
+
+function difficultyChange(){
+    console.log("in difficultyChange")
+     if(this.id == 'hard'){
+         shuffle(rgb);
+        hard = true;
+        console.log(this);
+         console.log("clicked hard");
+     }
+     else{
+         shuffle(rgb);
+         hard =false;
+     }
+
+     console.log(hard);
+     if (hard == true){
+         console.log("in the if line 89")
     var rand = getRandomInt(0,5);
     divNum = 5;
+    console.log("divNum is " + divNum + " " + rand)
+    for(var i = 0; i < divs.length; i++){
+            divs[i].classList.remove("hide");
+        }
     }
     else{
-    var rand = getRandomInt(0,2)
-    divNum = 2
-    for(var i = 0; i < divs.length; i++){
-        divs[i].classList.add("hide");
+        console.log("in the else line 94")
+        var rand = getRandomInt(0,2)
+        console.log(rand)
+        divNum = 2
+        for(var i = 0; i < divs.length; i++){
+            divs[i].classList.add("hide");
+        }
     }
+
+    for(var i = 0; i <= divNum; i++){
+        console.log("in the for line 116")
+        colourBlocks[i].style.backgroundColor = rgb[i];
+        colourBlocks[i].addEventListener("click", guess);
     }
     return rand;
 }
-
-var rand = difficultyLevel();
+console.log("line112");
+//var rand = difficultyChange();
+difficultyChange();
 
 console.log(hard);
 console.log("divNum is " + divNum);
@@ -83,32 +125,43 @@ console.log(rand)
 h1.innerHTML = rgb[rand];
 
 //gives background colours to each of the divs
-for(var i = 0; i <= divNum; i++){
-    colourBlocks[i].style.backgroundColor = rgb[i];
-    colourBlocks[i].addEventListener("click", guess);
-}
+// for(var i = 0; i <= divNum; i++){
+//     console.log("in the for line 116")
+//     colourBlocks[i].style.backgroundColor = rgb[i];
+//     colourBlocks[i].addEventListener("click", guess);
+// }
 
 for(var i = 0; i < difficulty.length; i++){
    // console.log("hi");
-    difficulty[i].addEventListener("click", difficultyLevel);
-    //difficulty[i].addEventListener("click", difficultyChange);
+    //difficulty[i].addEventListener("click", difficultyLevel);
+    difficulty[i].addEventListener("click", difficultyChange);
 }
 
-function difficultyChange(){
-    console.log("in difficultyChange")
-    hard = false;
-    console.log(this);
-    if(this.id == 'hard'){
-      hard = true;
-        console.log("clicked easy");
-    }
-    else {
-      return hard = false;
-    }
-    console.log(hard)
-    return hard;
-    //difficultyLevel(hard);
-}
+
+
+// function difficultyChange(){
+//     console.log("in difficultyChange")
+//     console.log(this);
+//     hard = false;
+//      if(this.id == 'hard'){
+//         hard = true;
+//          console.log("clicked hard");
+//      }
+
+
+//      if (hard!=false){
+//     var rand = getRandomInt(0,5);
+//     divNum = 5;
+//     }
+//     else{
+//     var rand = getRandomInt(0,2)
+//     divNum = 2
+//     for(var i = 0; i < divs.length; i++){
+//         divs[i].classList.add("hide");
+//     }
+//     }
+//     return rand;
+// }
 
 //guess function to determine if players click was correct or not
 function guess(){
