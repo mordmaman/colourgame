@@ -37,6 +37,7 @@ shuffle(rgb);
 
 //assigns elements on page to variables
 var divs = document.querySelectorAll('.colourBlock');
+var divsPlus = document.querySelectorAll('.colourBlockPlus');
 var h1 = document.querySelector('.rgb');
 var verdict = document.querySelector('.verdict');
 var difficulty = document.querySelectorAll('.difficulty');
@@ -57,16 +58,22 @@ function difficultyLevel(){
     var rand = getRandomInt(0,5);}
     else{
     var rand = getRandomInt(0,2)
+    for(var i = 0; i < divsPlus.length; i++){
+        divsPlus[i].classList.add("hide");
+    }
     }
     return rand;
 }
 
+var rand = difficultyLevel();
+
 //difficultyLevel();
 console.log(hard);
-console.log(difficultyLevel());
+//console.log(difficultyLevel());
+console.log(rand)
 
 //assigns an element from the array to the title div
-h1.innerHTML = rgb[difficultyLevel()];
+h1.innerHTML = rgb[rand];
 
 //gives background colours to each of the divs
 for(var i = 0; i < divs.length; i++){
@@ -77,6 +84,7 @@ for(var i = 0; i < divs.length; i++){
 //guess function to determine if players click was correct or not
 function guess(){
     console.log("clicked");
+    console.log(rgb[rand])
     console.log(this.style.backgroundColor + rgb[rand]);
     console.log(this.style.backgroundColor);
     if(this.style.backgroundColor != rgb[rand]) {

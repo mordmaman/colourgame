@@ -4,6 +4,12 @@
     /*border: 1px solid black;*/
 }
 
+.colourBlockPlus {
+    width: 50px;
+    height: 50px;
+    /*border: 1px solid black;*/
+}
+
 .hide {
     display: none;
 }
