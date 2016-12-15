@@ -44,7 +44,7 @@ var difficulty = document.querySelectorAll('.difficulty');
 
 //initialises the hard variable as false, to be changed if user clicks on hard
 var hard = false;
-
+var divNum;
 //chooses a random bumber between 0 & 2 
 //means that the correct rgb code wont always be the first one
 function getRandomInt(min, max) {
@@ -55,13 +55,17 @@ function getRandomInt(min, max) {
 //adds the if else to determine if the number should be limited to 3 or 6
 function difficultyLevel(){
     if (hard!=false){
-    var rand = getRandomInt(0,5);}
+    var rand = getRandomInt(0,5);
+    divNum = 5;
+    }
     else{
     var rand = getRandomInt(0,2)
-    for(var i = 0; i < divsPlus.length; i++){
-        divsPlus[i].classList.add("hide");
+    divNum = 2
+    for(var i = 0; i < divs.length; i++){
+        divs[i].classList.add("hide");
     }
     }
+    //return divNum;
     return rand;
 }
 
@@ -69,6 +73,7 @@ var rand = difficultyLevel();
 
 //difficultyLevel();
 console.log(hard);
+console.log("divNum is " + divNum);
 //console.log(difficultyLevel());
 console.log(rand)
 
@@ -76,9 +81,9 @@ console.log(rand)
 h1.innerHTML = rgb[rand];
 
 //gives background colours to each of the divs
-for(var i = 0; i < divs.length; i++){
-    divs[i].style.backgroundColor = rgb[i];
-    divs[i].addEventListener("click", guess);
+for(var i = 0; i <= divNum; i++){
+    divsPlus[i].style.backgroundColor = rgb[i];
+    divsPlus[i].addEventListener("click", guess);
 }
 
 //guess function to determine if players click was correct or not
@@ -94,9 +99,9 @@ function guess(){
     else if(this.style.backgroundColor == rgb[rand]){
         console.log("samesies");
         verdict.innerHTML = "Correct";
-        for(var i = 0; i < divs.length; i++){
-            divs[i].classList.remove("hide");
-            divs[i].style.backgroundColor = rgb[rand];
+        for(var i = 0; i <= divNum.length; i++){
+            divsPlus[i].classList.remove("hide");
+            divsPlus[i].style.backgroundColor = rgb[rand];
         }
     }
 }
