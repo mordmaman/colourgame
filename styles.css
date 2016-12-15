@@ -1,13 +1,52 @@
-.colourBlock {
-    width: 50px;
-    height: 50px;
-    /*border: 1px solid black;*/
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+.container{
+    display: flex;
+    flex-direction: column;
 }
 
-.colourBlockPlus {
-    width: 50px;
-    height: 50px;
-    /*border: 1px solid black;*/
+.chosenRGB{
+    height: 10%;
+    width: 100%;
+    background-color: greenyellow;
+}
+
+.rgb{
+    padding: 30px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.diffChoice{
+    display: inline-flex;
+    margin: 0 auto;
+}
+
+.colourChoices{
+    margin: 0 auto;
+}
+
+.topRow, .bottomRow{
+    flex-direction: row;
+    display: flex;
+}
+
+.difficulty{
+    margin: 20px;
+}
+
+.c{
+    margin: 20px;
+    width: 200px;
+    height: 200px;
 }
 
 .hide {

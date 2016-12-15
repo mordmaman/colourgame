@@ -48,6 +48,7 @@ var h1 = document.querySelector('.rgb');
 var verdict = document.querySelector('.verdict');
 var difficulty = document.querySelectorAll('.difficulty');
 var colourBlocks = document.querySelectorAll('.c');
+var chosenRGB = document.querySelector('.chosenRGB');
 //initialises the hard variable as false, to be changed if user clicks on hard
 //var hard = false;
 var hard;
@@ -132,6 +133,7 @@ function guess(){
             console.log("in the for");
             colourBlocks[i].classList.remove("hide");
             colourBlocks[i].style.backgroundColor = rgb[rand];
+            chosenRGB.style.backgroundColor = rgb[rand];
         }
     }
 }
