@@ -49,13 +49,16 @@ var difficulty = document.querySelectorAll('.difficulty');
 var colourBlocks = document.querySelectorAll('.c');
 
 //initialises the hard variable as false, to be changed if user clicks on hard
-var hard = false;
+//var hard = false;
+var hard;
 var divNum;
 
 
 //stores the random number generated in a variable
 //adds the if else to determine if the number should be limited to 3 or 6
 function difficultyLevel(){
+    //difficultyChange();
+    console.log(hard);
     if (hard!=false){
     var rand = getRandomInt(0,5);
     divNum = 5;
@@ -83,6 +86,28 @@ h1.innerHTML = rgb[rand];
 for(var i = 0; i <= divNum; i++){
     colourBlocks[i].style.backgroundColor = rgb[i];
     colourBlocks[i].addEventListener("click", guess);
+}
+
+for(var i = 0; i < difficulty.length; i++){
+   // console.log("hi");
+    difficulty[i].addEventListener("click", difficultyLevel);
+    //difficulty[i].addEventListener("click", difficultyChange);
+}
+
+function difficultyChange(){
+    console.log("in difficultyChange")
+    hard = false;
+    console.log(this);
+    if(this.id == 'hard'){
+      hard = true;
+        console.log("clicked easy");
+    }
+    else {
+      return hard = false;
+    }
+    console.log(hard)
+    return hard;
+    //difficultyLevel(hard);
 }
 
 //guess function to determine if players click was correct or not
