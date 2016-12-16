@@ -49,6 +49,7 @@ var verdict = document.querySelector('.verdict');
 var difficulty = document.querySelectorAll('.difficulty');
 var colourBlocks = document.querySelectorAll('.c');
 var chosenRGB = document.querySelector('.chosenRGB');
+var reset = document.querySelector('.reset');
 //initialises the hard variable as false, to be changed if user clicks on hard
 //var hard = false;
 var hard;
@@ -112,8 +113,6 @@ console.log(rand)
 h1.innerHTML = rgb[rand];
 
 for(var i = 0; i < difficulty.length; i++){
-   // console.log("hi");
-    //difficulty[i].addEventListener("click", difficultyLevel);
     difficulty[i].addEventListener("click", difficultyChange);
 }
 
@@ -137,6 +136,14 @@ function guess(){
         }
     }
 }
+
+reset.addEventListener("click", resetA);
+
+function resetA(){
+    console.log("reset");
+    difficultyChange();
+}
+
 console.log(rgb);
 
 
