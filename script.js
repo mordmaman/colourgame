@@ -111,6 +111,7 @@ console.log(rand)
 
 //assigns an element from the array to the title div
 h1.innerHTML = rgb[rand];
+chosenRGB.style.backgroundColor = "#ffffff";
 
 for(var i = 0; i < difficulty.length; i++){
     difficulty[i].addEventListener("click", difficultyChange);
