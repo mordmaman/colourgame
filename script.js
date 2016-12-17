@@ -58,6 +58,8 @@ var rand;
 
 function difficultyChange(){
     console.log("in difficultyChange")
+    
+    chosenRGB.style.backgroundColor = "#ffffff";
      if(this.id == 'hard'){
         shuffle(rgb);
         h1.innerHTML = rgb[rand];
@@ -142,7 +144,8 @@ reset.addEventListener("click", resetA);
 
 function resetA(){
     console.log("reset");
-    difficultyChange();
+    difficultyChange();  
+    chosenRGB.style.backgroundColor = "#ffffff";
 }
 
 console.log(rgb);
