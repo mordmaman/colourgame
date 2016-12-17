@@ -6,6 +6,7 @@
         font-size: 100%;
         vertical-align: baseline;
         background: transparent;
+        font-family: 'Catamaran', sans-serif;
     }
 
 .container{
@@ -56,4 +57,12 @@
 .reset{
   text-align: center;
     margin: 0 auto;  
+}
+
+h1{
+    font-size: 38px;
+}
+
+p {
+    font-size: 24px;
 }
