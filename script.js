@@ -50,6 +50,8 @@ var difficulty = document.querySelectorAll('.difficulty');
 var colourBlocks = document.querySelectorAll('.c');
 var chosenRGB = document.querySelector('.chosenRGB');
 var reset = document.querySelector('.reset');
+var easy = document.getElementById("easy");
+var notEasy = document.getElementById("hard");
 //initialises the hard variable as false, to be changed if user clicks on hard
 //var hard = false;
 var hard;
@@ -63,11 +65,15 @@ function difficultyChange(){
      if(this.id == 'hard'){
         shuffle(rgb);
         h1.innerHTML = rgb[rand];
+        this.classList.add("active");
+        easy.classList.remove("active");
         hard = true;
         console.log(this);
         console.log("clicked hard");
      }
      else{
+         easy.classList.add("active");
+         notEasy.classList.remove("active");
          shuffle(rgb);
          hard =false;
      }
