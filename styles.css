@@ -55,6 +55,7 @@
 .active {
     background-color: plum;
     border-radius: 5px;
+    padding: 0 5px;
   }
 .hide {
     opacity:0;
