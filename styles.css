@@ -56,9 +56,11 @@
     background-color: plum;
     border-radius: 5px;
     padding: 0 5px;
-  }
+}
+
 .hide {
     opacity:0;
+    transition: opacity 0.5s linear;
 }
 
 .reset, .verdict{
